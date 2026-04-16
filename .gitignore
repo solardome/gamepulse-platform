@@ -26,7 +26,13 @@ go.work.sum
 
 # env file
 .env
+bin/
+dist/
+coverage.out
 
 # Editor/IDE
-# .idea/
-# .vscode/
+ .idea/
+ .vscode/
+
+#OS
+.DS_Store
