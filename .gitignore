@@ -33,6 +33,7 @@ coverage.out
 # Editor/IDE
  .idea/
  .vscode/
+ docs/
 
 #OS
 .DS_Store

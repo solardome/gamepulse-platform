@@ -1,0 +1,106 @@
+{{ define "index" }}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }}</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f1e8;
+        --panel: #fffaf2;
+        --ink: #1b1a17;
+        --muted: #5f5a51;
+        --accent: #14532d;
+        --accent-strong: #0b3b1f;
+        --border: #d7ccb8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top left, rgba(20, 83, 45, 0.14), transparent 28rem),
+          linear-gradient(180deg, #efe7d8 0%, var(--bg) 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 52rem;
+        margin: 4rem auto;
+        padding: 0 1.25rem;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 1.2rem 3rem rgba(27, 26, 23, 0.08);
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        line-height: 1.05;
+      }
+
+      p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 999px;
+        padding: 0.9rem 1.3rem;
+        font-size: 1rem;
+        font-weight: 700;
+        background: var(--accent);
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: var(--accent-strong);
+      }
+
+      #result {
+        margin-top: 1.5rem;
+      }
+
+      .small {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <p class="small">GamePulse Accounts / Lab 01</p>
+        <h1>Service Skeletons and Wiring</h1>
+        <p>
+          This page is server-rendered with <code>html/template</code>. The button below issues an HTMX
+          request to <code>accounts-web</code>, which calls the GraphQL accounts-gateway, which then calls the gRPC
+          account service.
+        </p>
+        <button
+          hx-post="/actions/ping"
+          hx-target="#result"
+          hx-swap="innerHTML">
+          Run Connectivity Check
+        </button>
+        <div id="result"></div>
+      </section>
+    </main>
+  </body>
+</html>
+{{ end }}

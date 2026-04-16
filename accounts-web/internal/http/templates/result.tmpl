@@ -1,0 +1,11 @@
+{{ define "result" }}
+{{ if .Error }}
+<div style="padding: 1rem; border-radius: 0.75rem; border: 1px solid #7f1d1d; background: #fef2f2; color: #7f1d1d;">
+  Request failed: {{ .Error }}
+</div>
+{{ else }}
+<div style="padding: 1rem; border-radius: 0.75rem; border: 1px solid #14532d; background: #f0fdf4; color: #14532d;">
+  <strong>{{ .Message }}</strong> via <code>{{ .Service }}</code>
+</div>
+{{ end }}
+{{ end }}

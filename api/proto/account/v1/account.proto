@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package gamepulse.accounts.account.v1;
+
+option go_package = "github.com/solardome/gamepulse-platform/gen/account/v1;accountv1";
+
+service AccountService {
+  rpc Ping(PingRequest) returns (PingResponse);
+}
+
+message PingRequest {
+  string origin = 1;
+}
+
+message PingResponse {
+  string message = 1;
+  string service = 2;
+}

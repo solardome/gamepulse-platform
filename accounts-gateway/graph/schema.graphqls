@@ -1,0 +1,12 @@
+schema {
+  query: Query
+}
+
+type Query {
+  ping: PingResult!
+}
+
+type PingResult {
+  message: String!
+  service: String!
+}
