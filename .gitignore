@@ -29,11 +29,13 @@ go.work.sum
 bin/
 dist/
 coverage.out
+.env.example
 
 # Editor/IDE
  .idea/
  .vscode/
  docs/
+ qodana.yaml
 
 #OS
 .DS_Store
